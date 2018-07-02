@@ -4,6 +4,7 @@ package com.hcl.entity;
 import java.util.Date;
 
 public class Area {
+    //成员变量都为引用类型是为了保证某个值为空时不会被设置默认值（例如int默认为0）
     private Integer areaId;//ID
     private String areaName;//区域名称
     private Integer priority;//区域优先级
