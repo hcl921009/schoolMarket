@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!--定义参数常量-->
+    <!--TRACE\DEBUG\INFO\WARN\ERROR级别-->
+    <!--TRACE<DEBUG<INFO<WARN<ERROR-->
+    <!--logger.trace("msg") logger.debug...-->
+    <property name="log.level" value="debug"/>
+    <property name="log.maxHistory" value="30"/><!--最大存储时间-->
+    <property name="log.filePath" value="${catalina.base}/logs/webapps"/><!--存储根目录-->
+    <property name="log.pattern"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS}[%thread]%-5level %logger{50} -%msg%n"/> <!--日志展示格式-->
+    <!--控制台设置-->
+    <appender name="consoleAAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+    <!--DEBUG-->
+    <appender name="debugAppender" calss="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--文件路径-->
+        <file>${log.filePath}/debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--文件名称-->
+            <fileNamePattern>
+                ${log.filePath}/dabug/debug.%d{yyyy-MM-dd}.log.gz
+            </fileNamePattern>
+            <!--文件最大保存历史数量-->
+            <MaxHistory>${log.maxHistory}</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!--INFO-->
+    <appender name="infoAppender" calss="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--文件路径-->
+        <file>${log.filePath}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--文件名称-->
+            <fileNamePattern>
+                ${log.filePath}/dabug/info.%d{yyyy-MM-dd}.log.gz
+            </fileNamePattern>
+            <!--文件最大保存历史数量-->
+            <MaxHistory>${log.maxHistory}</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+</configuration>
