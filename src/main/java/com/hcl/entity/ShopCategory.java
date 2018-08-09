@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class ShopCategory {
     private Long shopCategoryId;//店铺ID
-    private Long shopCategoryImg;//店铺图片链接
+    private String shopCategoryImg;//店铺图片链接
     private String shopCategoryName;//店铺名称
     private String shopCategoryDesc;//店铺描述
     private Integer priority;//店铺优先级
@@ -32,11 +32,11 @@ public class ShopCategory {
         this.shopCategoryId = shopCategoryId;
     }
 
-    public Long getShopCategoryImg() {
+    public String getShopCategoryImg() {
         return shopCategoryImg;
     }
 
-    public void setShopCategoryImg(Long shopCategoryImg) {
+    public void setShopCategoryImg(String shopCategoryImg) {
         this.shopCategoryImg = shopCategoryImg;
     }
 

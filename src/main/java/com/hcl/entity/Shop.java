@@ -20,7 +20,6 @@ public class Shop {
     private Area area;//店铺地址区域
     private PersonInfo owner; //owner;店铺用户信息
     private ShopCategory shopCategory;//店铺类别
-    private ShopCategory parentCategory;//店铺大类信息
 
     public Long getShopId() {
         return shopId;
@@ -134,11 +133,5 @@ public class Shop {
         this.shopCategory = shopCategory;
     }
 
-    public ShopCategory getParentCategory() {
-        return parentCategory;
-    }
 
-    public void setParentCategory(ShopCategory parentCategory) {
-        this.parentCategory = parentCategory;
-    }
 }
